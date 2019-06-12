@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expression</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <!-- ナビゲーション -->
+     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent navbar-inverse">
+
+       <!-- 省略メニューボタン -->
+       <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample10">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+
+       <!-- トップ -->
+       <div class="container">
+        <ul class="nav navbar-nav navbar-static-top">
+          <li class="navbar-brand">
+            <%= link_to root_path do %>
+              EXPRESSION
+            <% end %>
+          </li>
+        </ul>
+
+        <!-- メニュー一覧 -->
+        <div class="collapse navbar-collapse" id="navbarEexample10">
+          <ul class="nav navbar-nav navbar-right ">
+            <li>
+              <%= link_to root_path do %>
+               メニュー1
+              <% end %>
+            </li>
+
+           <li>
+             <%= link_to root_path do %>
+               メニュー2
+             <% end %>
+           </li>
+           <li>
+             <%= link_to root_path do %>
+               メニュー3
+             <% end %>
+           </li>
+           <li>
+             <%= link_to root_path do %>
+               ログイン
+             <% end %>
+           </li>
+         </ul>
+        </div>
+     </nav>
+    <% if notice %>
+  <p class="notice"><%= notice %></p>
+<% elsif alert %>
+  <p class="alert"><%= alert %></p>
+<% end %>
+    <%= yield %>
+  </body>
+</html>
