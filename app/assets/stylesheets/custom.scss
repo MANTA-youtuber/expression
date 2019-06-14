@@ -1,38 +1,42 @@
+// 全体
 h1, h2 {
   font-weight: 100;
 }
 
+// ページやデバイスのbody
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
-
 }
 
 .top-hero-container {
   padding-top: 150px;
+
   h1 {
     font-size: 80px;
     margin-bottom: 20px;
   }
-
-
 }
+
+// ナビゲーション
 .navbar{
   margin-bottom: 0px;
   border-bottom: 0px;
   font-size: 16px;
-
 }
+
 .navbar-brand {
   padding: 0px;
   margin-top: 0px;
   font-size: 25px;
-
 }
 
+
+// Topicのページ
 .topic-index-wrapper {
   padding-top: 50px;
-  background-color: #696969;
+  background-color: #9c9c9c;
+
   .topic-index-single {
     background-color: #dcdcdc;
     padding-top: 20px;
@@ -41,8 +45,8 @@ h1, h2 {
     margin-top:30px;
     margin-bottom: 30px;
 
-    border: 3px solid #808080;
-    border-radius: 3px;
+    border: 2px solid #808080;
+    border-radius: 5px;
 
     .topic-author {
       padding-right: 20px;
@@ -51,18 +55,13 @@ h1, h2 {
       font-size: 20px;
       p{
         display:  inline-block;
-        
       }
-
-
     }
+
     .topic-conte{
       margin-right: 10px;
       margin-bottom: 5px;
-
-
     }
-
 
     .topic-text {
       padding-right: 20px;
@@ -75,8 +74,11 @@ h1, h2 {
       border-radius: 10px;
       width: 100%;
     }
+  }
 
-
-
+  .icon-list{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    
   }
 }

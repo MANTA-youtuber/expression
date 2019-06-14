@@ -8,21 +8,25 @@
               <p>
                 <%= topic.user.name %>
               </p>
-              <p >
+              <p>
                 <%= l topic.created_at, format: :short %>
               </p>
             </h2>
-
 
             <div class="topic-conte">
               <p class="topic-text ">
                 <%= topic.description %>
               </p>
 
-                <%= image_tag topic.image.url %>
+              <%= image_tag topic.image.url %>
 
+              <div class="icon-list fa-2x">
+                  <i class="far fa-heart"></i>
+
+                  <i class="far fa-comment"></i>
+
+              </div>
             </div>
-
           </div>
         </div>
       </div>
