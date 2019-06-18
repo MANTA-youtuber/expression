@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'topics/index'
-  get 'topics/new'
+  # get 'topics/index'
+  # get 'topics/new'
   root'pages#index'
+
   resources :topics
 
 
