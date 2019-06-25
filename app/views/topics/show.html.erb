@@ -1,0 +1,55 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+
+            <h2 class="topic-author inline-block">
+              <p>
+                <%= @topic.user.name %>
+              </p>
+              <p>
+                <%= l @topic.created_at, format: :short %>
+              </p>
+            </h2>
+
+            <div class="topic-conte">
+              <p class="topic-text ">
+                <%= @topic.description %>
+              </p>
+              <% if @topic.image.present? %>
+              <%= image_tag @topic.image.url %>
+              <% end %>
+            </div>
+
+          </div>
+
+          <% if @topic.comments.any? %>
+            <% @topic.comments.each do |comment| %>
+              <div class="comment-index-single">
+                <p >
+                  <%= comment.user.name %>
+                </p>
+                <p>
+                  <%= comment.content %>
+                </p>
+              </div>
+            <% end %>
+          <% end %>
+
+          <%= form_for ([@topic, @topic.comments.build]) do |f| %>
+          <div class="form-group">
+            <%= f.text_area :content, class: 'form-control' %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :topic_id, value: @topic %>
+          </div>
+
+          <%= f.submit '返信', class: 'btn btn-black btn-block' %>
+          <% end %>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
