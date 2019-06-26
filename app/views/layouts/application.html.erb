@@ -11,7 +11,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <body>
-    
+
 
     <!-- ナビゲーション -->
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent navbar-inverse">
@@ -36,6 +36,7 @@
         <!-- メニュー一覧 -->
         <div class="collapse navbar-collapse" id="navbarEexample10">
           <ul class="nav navbar-nav navbar-right ">
+            <% if user_signed_in? %>
             <li>
               <%= link_to topics_path do %>
                ホーム
@@ -52,11 +53,17 @@
                編集
              <% end %>
            </li>
-           <li>
-             <%= link_to new_user_session_path do %>
-               ログイン
-             <% end %>
-           </li>
+             <li>
+               <%= link_to"ログアウト", destroy_user_session_path, method: :delete, data: {confirm: 'ログアウトしてよろしいですか？'}  %>
+
+             </li>
+            <% else %>
+             <li>
+               <%= link_to new_user_session_path do %>
+                 ログイン
+               <% end %>
+             </li>
+            <% end %>
          </ul>
        </div>
      </div>

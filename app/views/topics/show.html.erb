@@ -24,18 +24,6 @@
 
           </div>
 
-          <% if @topic.comments.any? %>
-            <% @topic.comments.each do |comment| %>
-              <div class="comment-index-single">
-                <p >
-                  <%= comment.user.name %>
-                </p>
-                <p>
-                  <%= comment.content %>
-                </p>
-              </div>
-            <% end %>
-          <% end %>
 
           <%= form_for ([@topic, @topic.comments.build]) do |f| %>
           <div class="form-group">
@@ -48,6 +36,17 @@
           <% end %>
 
 
+          <% if @topic.comments.any? %>
+          <% @topic.comments.each do |comment| %>
+          <div class="comment-index-single">
+
+            <p>
+              <%= comment.content %>
+              あああああ
+            </p>
+          </div>
+          <% end %>
+          <% end %>
       </div>
     </div>
 
