@@ -10,4 +10,7 @@ validates :name, presence: true
 # アソシエーション
   has_many :topics
   has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :liked_topics, through: :likes, source: 'topic'
+
 end

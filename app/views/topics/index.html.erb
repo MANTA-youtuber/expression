@@ -25,16 +25,27 @@
 
               <div class="icon-list fa-2x">
                 <!-- いいねボタン -->
-                <i class="far fa-heart"></i>
+                <% if topic.liked_users.include?(current_user) %>
+                  <%= link_to likes_path(topic_id: topic.id), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+                <% else %>
+                <%= link_to likes_path(topic_id: topic.id), method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+                <% end %>
+
+                <%= topic.likes.count  %>
+
                 <!-- コメント -->
                 <%= link_to "/topics/#{topic.id}" do %>
                   <i class="far fa-comment"></i>
                 <% end %>
+                <%= topic.comments.count %>
               </div>
 
 
               <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
-
 
             </div>
           </div>
