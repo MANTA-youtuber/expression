@@ -14,10 +14,7 @@
             </h2>
 
             <div class="topic-conte">
-              <p class="topic-text ">
-                <!-- 本文 -->
-                <%= topic.description %>
-              </p>
+              <p class="topic-text"><!-- 本文 --><%= topic.description %></p>
                 <!--画像 (※ある場合のみ) -->
               <% if topic.image.present? %>
                 <%= image_tag topic.image.url %>

@@ -14,9 +14,7 @@
             </h2>
 
             <div class="topic-conte">
-              <p class="topic-text ">
-                <%= @topic.description %>
-              </p>
+              <p class="topic-text"><%= @topic.description %></p>
               <% if @topic.image.present? %>
               <%= image_tag @topic.image.url %>
               <% end %>
@@ -28,7 +26,7 @@
           <% @topic.comments.each do |comment| %>
           <div class="comment-index-single">
 
-            <p><%= comment.content %>    </p>
+            <p><%= comment.content %></p>
           </div>
           <% end %>
           <% end %>
