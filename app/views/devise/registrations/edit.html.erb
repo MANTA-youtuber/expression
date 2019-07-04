@@ -1,7 +1,7 @@
 <div class="topic-index-wrapper text-center">
   <div class="container ">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-8 col-md-offset-4">
         <div class="topic-index-single">
 
         <h2>ユーザー情報変更 </h2>
@@ -10,13 +10,30 @@
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="form-group">
            <%= f.label :ユーザーネーム %><br />
-           <%= f.text_field :name, autofocus: true %>
+           <%= f.text_field :name, class: 'form-control', autofocus: true %>
          </div>
 
+          <div class="form-group">
+           <%= f.label :"プロフィール(125文字まで)" %><br />
+           <%= f.text_area :profile, class: 'form-control', autofocus: true %>
+         </div>
+          <div class="form-group">
+            <%=f.label :"ユーザー画像" %>
+            <%= f.file_field :image %>
+         </div>
+
+          <div>
+            <%= f.label :age, '年齢', class:'control-label', autofocus: true %>
+            <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :live, '住んでいる場所(15文字まで)' %>
+            <%= f.text_field :address, class: 'form-control', autofocus: true %>
+          </div>
 
           <div class="form-group">
             <%= f.label :メールアドレス %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+            <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email"%>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -25,7 +42,7 @@
 
           <div class="form-group">
             <%= f.label :新しいパスワード %> <i>(変更したくない場合は空白のままにしてください。)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password, class: 'form-control', autocomplete: "new-password" %>
             <% if @minimum_password_length %>
             <br />
             <em><%= @minimum_password_length %> 文字以上</em>
@@ -34,12 +51,12 @@
 
           <div class="form-group">
             <%= f.label :パスワード確認 %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password"%>
+            <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password"%>
           </div>
 
           <div class="form-group">
             <%= f.label :現在のパスワード %> <i>(変更を確認するために現在のパスワードが必要です)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
+            <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
           </div>
 
           <div class="actions">

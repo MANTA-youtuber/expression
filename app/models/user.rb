@@ -7,10 +7,15 @@ class User < ApplicationRecord
 
 # バリデーション
 validates :name, presence: true
+validates :address, length: { maximum: 15 }
+validates :profile, length: { maximum: 125 }
+validates :name, presence: true
 # アソシエーション
   has_many :topics
   has_many :comments
   has_many :likes, dependent: :destroy
   has_many :liked_topics, through: :likes, source: 'topic'
+  # 画像の設定
+  mount_uploader :image, ImageUploader
 
 end

@@ -2,36 +2,34 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-4 col-sm-5">
-        <div class="pro-index-single ">
-          <div class="pro-top text-center">
-            <p class="user-pro-image">
-              <%= image_tag @user.image.url %>
+      <div class="pro-index-single2 col-md-12">
+        <p class="user-pro-image2 pro-top col-md-4 text-center offset-col-md-8">
+          <%= image_tag @user.image.url %>
+        </p>
 
-            </p>
-            <p><%= @user.name %></p>
-          </div>
+        <p pro-top class= "pro-top2 col-md-8 text-center">
+          <%= @user.name %>
+        </p>
 
-          <div class="pro-pro ">
-            <p><%= @user.profile %></p>
-          </div>
+        <div class="col-md-8 pro-text">
+          <p><%= @user.profile %></p>
+        </div>
 
-          <div class= "profile-other">
-            <p>
-              <i class="fas fa-map-marker-alt"></i>
-              <%= @user.address %>
-            </p>
-            <p>
-              <i class="fas fa-birthday-cake"></i>
-              <%= @user.age %>代
-            </p>
-          </div>
-
+        <div class= "profile-other col-md-12 ">
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <%= @user.address %>
+          </p>
+          <p>
+            <i class="fas fa-birthday-cake"></i>
+            <%= @user.age %>代
+          </p>
         </div>
       </div>
 
-      <div class="col-md-6 col-sm-7">
-    <% @topics.each do |topic| %>
+
+      <div class="col-md-6 col-md-offset-6 ">
+        <% @topics.each do |topic| %>
           <div class="topic-index-single">
             <h2 class="topic-author">
               <p class="user-image">
@@ -50,22 +48,22 @@
             <div class="topic-conte">
               <p class="topic-text"><!-- 本文 --><%= topic.description %></p>
                 <!--画像 (※ある場合のみ) -->
-                <p class= "topic-image">
-                  <% if topic.image.present? %>
-                  <%= image_tag topic.image.url %>
-                  <% end %>
-                </p>
+              <p class= "topic-image">
+                <% if topic.image.present? %>
+                <%= image_tag topic.image.url %>
+                <% end %>
+              </p>
 
               <div class="icon-list fa-2x">
                 <!-- いいねボタン -->
                 <% if topic.liked_users.include?(current_user) %>
                   <%= link_to likes_path(topic_id: topic.id), method: :delete do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
                 <% else %>
-                <%= link_to likes_path(topic_id: topic.id), method: :post do %>
-                  <i class="far fa-heart"></i>
-                <% end %>
+                  <%= link_to likes_path(topic_id: topic.id), method: :post do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
                 <% end %>
 
                 <%= topic.likes.count  %>
@@ -74,16 +72,18 @@
                 <%= link_to "/topics/#{topic.id}" do %>
                   <i class="far fa-comment"></i>
                 <% end %>
+
                 <%= topic.comments.count %>
               </div>
+
               <!--  ログインしているかつtopicと投稿したuserが一緒なら -->
               <% if user_signed_in? && current_user.id == topic.user_id  %>
               <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
               <% end %>
             </div>
           </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,51 +1,53 @@
 <div class="topic-index-wrapper">
   <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="topic-index-single">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="topic-index-single">
+          <h2 class="topic-author">
+            <p class="user-image">
+              <%= image_tag @topic.user.image.url %>
+            </p>
 
-            <h2 class="topic-author inline-block">
-              <p>
-                <%= @topic.user.name %>
-              </p>
-              <p>
-                <%= l @topic.created_at, format: :short %>
-              </p>
-            </h2>
+            <p>
+              <%= @topic.user.name %>
+            </p>
 
-            <div class="topic-conte">
-              <p class="topic-text"><%= @topic.description %></p>
+            <p class="time-text">
+              <%= l @topic.created_at, format: :short %>
+            </p>
+          </h2>
+
+          <div class="topic-conte">
+            <p class="topic-text"><!-- 本文 --><%= @topic.description %></p>
+              <!--画像 (※ある場合のみ) -->
+            <p class= "topic-image">
               <% if @topic.image.present? %>
               <%= image_tag @topic.image.url %>
               <% end %>
-            </div>
-
+            </p>
           </div>
+        </div>
 
+        <div>
           <% if @topic.comments.any? %>
-          <% @topic.comments.each do |comment| %>
-          <div class="comment-index-single">
-
-            <p><%= comment.content %></p>
-          </div>
-          <% end %>
+            <% @topic.comments.each do |comment| %>
+              <div class="comment-index-single">
+                <p><%= comment.content %></p>
+              </div>
+            <% end %>
           <% end %>
 
           <%= form_for ([@topic, @topic.comments.build]) do |f| %>
-          <div class="form-group">
-            <%= f.text_area :content, class: 'form-control' %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :topic_id, value: @topic %>
-          </div>
-          <div>
+            <div class="form-group">
+              <%= f.text_area :content, class: 'form-control' %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :topic_id, value: @topic %>
 
-          <%= f.submit '返信', class: 'btn btn-black btn-block' %>
-        </div>
+              <%= f.submit '返信', class: 'btn btn-info btn-block' %>
+            </div>
           <% end %>
-
-
+        </div>
       </div>
     </div>
-
   </div>
 </div>

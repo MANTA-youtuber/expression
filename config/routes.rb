@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show/(id: current_user.id)', to: 'useus#show'
   get 'topics/index'
   get 'topics/new'
   root'pages#index'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
    sessions: 'users/sessions'
   }
 
+  resources :users, only: [:show, :index]
 
 
 end

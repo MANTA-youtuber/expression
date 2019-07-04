@@ -7,7 +7,7 @@ h1, h2 {
 .top-hero-wrapper {
   width: 100vw;
   height: 120vh;
-  background-color: #9c9c9c;
+  background-color: #fff;
 
 }
 
@@ -21,6 +21,7 @@ h1, h2 {
 }
 
 // ナビゲーション
+
 .navbar{
   margin-bottom: 0px;
   border-bottom: 0px;
@@ -35,15 +36,27 @@ h1, h2 {
 
 
 // Topicのページ
+
+.user-image{
+  img{
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 30px;
+
+  }
+
+}
 .topic-index-wrapper {
   padding-top: 50px;
-  background-color: #9c9c9c;
+  background-color: #fff;
 
   .topic-index-single {
     background-color: #dcdcdc;
     padding-top: 20px;
 
-    padding-left: 50px;
+    // padding-left: 50px;
     margin-top:20px;
     margin-bottom: 10px;
 
@@ -53,16 +66,23 @@ h1, h2 {
     .topic-author {
       padding-right: 20px;
       padding-left: 0px;
+      height: 65px;
       margin: 0px;
-      font-size: 20px;
+      font-size: 30px;
       p{
         display:  inline-block;
+      }
+      .time-text{
+        font-size: 20px;
+        float: right;
       }
     }
 
     .topic-conte{
       margin-right: 10px;
       margin-bottom: 5px;
+      margin-left: 70px;
+
     }
 
     .topic-text {
@@ -71,24 +91,35 @@ h1, h2 {
       font-size: 20px;
       white-space: pre-wrap;
     }
+    .topic-image{
 
-    img {
-      border: 1px solid rgba(0,0,0,0.1);
-      margin-right: 5px;
-      border-radius: 10px;
-      width: 100%;
+      img {
+        border: 1px solid rgba(0,0,0,0.1);
+        margin-right: 5px;
+        border-radius: 10px;
+        width: 100%;
+      }
     }
   }
 
   .icon-list{
     margin-top: 15px;
     margin-bottom: 10px;
+    font-size: 20px;
+    a{
+      text-decoration-line: none;
+      color: #000;
+
+    }
+    a:hover{
+      color: #fff;
+    }
 
   }
 }
 .comment-index-single{
   background-color: #dcdcdc;
-  padding-top: 20px;
+
 
   padding-left: 50px;
   margin-top:20px;
@@ -96,4 +127,88 @@ h1, h2 {
 
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 5px;
+}
+// サイドプロフィール
+.user-pro-image{
+  img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 30px;
+  }
+}
+
+.profile-other{
+  p{
+  font-size: 15px;
+  margin: 10px 20px;
+  }
+}
+
+.pro-top{
+  font-size: 25px;
+
+}
+.pro-pro{
+font-size: 15px;
+padding: 10px 20px;
+  border-top: 2px solid rgba(0,0,0,0.1);
+
+}
+
+.pro-index-single{
+
+  background-color:#dcdcdc;
+  padding-top: 20px;
+  margin-top:20px;
+  margin-bottom: 10px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+// プロフィル画面
+
+.pro-index-single2{
+  background-color:#dcdcdc;
+  padding-top: 20px;
+  margin-top:20px;
+  margin-bottom: 10px;
+  border: 3px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+  .pro-text{
+    margin-top:15px;
+    font-size:18px;
+
+  }
+
+  .profile-other{
+    margin-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    p{
+    font-size: 18px;
+    margin-left: 0px;
+    display:  inline-block;
+    }
+  }
+
+
+  .user-pro-image2{
+    img{
+      width: 250px;
+      border: 3px solid rgba(0,0,0,0.3);
+      border-radius: 30px;
+
+    }
+  }
+
+  .pro-top2{
+    font-size: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+
+}
+// アラート
+.alert{
+  margin-top: 50px;
+  margin-bottom: 0px;
 }

@@ -12,6 +12,11 @@
 
   <body>
 
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+
+
 
     <!-- ナビゲーション -->
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent navbar-inverse">
@@ -42,17 +47,18 @@
                ホーム
               <% end %>
             </li>
+            <li>
+              <%= link_to user_path(current_user.id) do %>
+                マイページ
+              <% end %>
+            </li>
 
            <li>
              <%= link_to new_topic_path do %>
                ツイート投稿
              <% end %>
            </li>
-           <li>
-             <%= link_to  edit_user_registration_path do %>
-               編集
-             <% end %>
-           </li>
+
              <li>
                <%= link_to"ログアウト", destroy_user_session_path, method: :delete, data: {confirm: 'ログアウトしてよろしいですか？'}  %>
 
@@ -68,12 +74,14 @@
        </div>
      </div>
    </nav>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% elsif alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+
 
     <%= yield %>
+
+    <script>
+      $(function(){
+        $(".alert").fadeOut(2500);
+      });
+      </script>
   </body>
 </html>
