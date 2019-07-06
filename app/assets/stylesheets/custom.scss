@@ -69,6 +69,15 @@ h1, h2 {
       height: 65px;
       margin: 0px;
       font-size: 30px;
+      font-weight: 200;
+      a{
+
+        text-decoration-line: none;
+        color: #000;
+      }
+      a:hover{
+        color: #fff;
+      }
       p{
         display:  inline-block;
       }
@@ -102,19 +111,20 @@ h1, h2 {
     }
   }
 
-  .icon-list{
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    a{
-      text-decoration-line: none;
-      color: #000;
-
-    }
-    a:hover{
-      color: #fff;
-    }
-
+}
+.icon-list{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  div{
+    display:  inline-block;
+  }
+  a{
+    text-decoration-line: none;
+    color: #000;
+  }
+  a:hover{
+    color: #fff;
   }
 }
 .comment-index-single{
@@ -174,10 +184,12 @@ padding: 10px 20px;
   margin-bottom: 10px;
   border: 3px solid rgba(0,0,0,0.1);
   border-radius: 5px;
-  .pro-text{
-    margin-top:15px;
-    font-size:18px;
 
+  .pro-text{
+    margin-top: 5px;
+    padding-top:15px;
+    font-size:18px;
+    border-top: 1px solid rgba(0,0,0,0.1);
   }
 
   .profile-other{
@@ -202,7 +214,7 @@ padding: 10px 20px;
 
   .pro-top2{
     font-size: 40px;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+
   }
 
 
@@ -211,4 +223,19 @@ padding: 10px 20px;
 .alert{
   margin-top: 50px;
   margin-bottom: 0px;
+}
+
+// フォロー
+.stats{
+  font-size: 18px;
+  margin-bottom: 0px;
+  a{
+    margin: 0 8px;
+    text-decoration-line: none;
+    color: #006a6c;
+  }
+  a:hover{
+    color: #fff;
+  }
+
 }

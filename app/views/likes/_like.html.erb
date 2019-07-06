@@ -1,0 +1,12 @@
+<div id="likes_buttons_<%= topic.id %>">
+  <% if topic.liked_users.include?(current_user) %>
+    <%= link_to likes_path(topic_id: topic.id), method: :delete, remote: true  do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+  <% else %>
+    <%= link_to likes_path(topic_id: topic.id), method: :post, remote: true do %>
+      <i class="far fa-heart"></i>
+    <% end %>
+  <% end %>
+  <%= topic.likes.count  %>
+</div>

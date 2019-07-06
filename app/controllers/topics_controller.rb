@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   def index
     @topics = Topic.all
     @user = User.find(current_user.id)
-
+    @topic = Topic.new
   end
 
   def new

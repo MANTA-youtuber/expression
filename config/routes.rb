@@ -16,8 +16,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
    sessions: 'users/sessions'
   }
+  devise_scope :user do
+
+    get 'users/show/:id/following', to: 'users/registrations#following', as: 'following'
+    get 'users/show/:id/followers', to: 'users/registrations#followers', as: 'followers'
+  end
+
 
   resources :users, only: [:show, :index]
-
+  resources :relationships, only: [:create, :destroy]
 
 end

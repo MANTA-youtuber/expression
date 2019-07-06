@@ -9,7 +9,17 @@
 
         <p pro-top class= "pro-top2 col-md-8 text-center">
           <%= @user.name %>
+
+          <!-- フォロー -->
         </p>
+        <%= render 'devise/shared/stats' %>
+        <div class="text-center">
+          <%= render 'devise/shared/follow_form'%>
+        </div>
+
+
+
+
 
         <div class="col-md-8 pro-text">
           <p><%= @user.profile %></p>
@@ -29,7 +39,7 @@
 
 
       <div class="col-md-6 col-md-offset-6 ">
-        <% @topics.each do |topic| %>
+        <% @user.topics.each do |topic| %>
           <div class="topic-index-single">
             <h2 class="topic-author">
               <p class="user-image">
@@ -56,17 +66,9 @@
 
               <div class="icon-list fa-2x">
                 <!-- いいねボタン -->
-                <% if topic.liked_users.include?(current_user) %>
-                  <%= link_to likes_path(topic_id: topic.id), method: :delete do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to likes_path(topic_id: topic.id), method: :post do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-
-                <%= topic.likes.count  %>
+                <div id="likes_buttons_<%= topic.id %>">
+                  <%= render partial: 'likes/like', locals: { topic: topic} %>
+                </div>
 
                 <!-- コメント -->
                 <%= link_to "/topics/#{topic.id}" do %>

@@ -35,11 +35,15 @@
           <div class="topic-index-single">
             <h2 class="topic-author">
               <p class="user-image">
+
                 <%= image_tag topic.user.image.url %>
+
               </p>
 
               <p>
+                <%= link_to user_path(topic.user_id) do %>
                 <%=topic.user.name %>
+                <% end %>
               </p>
 
               <p class="time-text">
@@ -56,20 +60,9 @@
                   <% end %>
                 </p>
 
-              <div class="icon-list fa-2x">
+                <div class="icon-list fa-2x">
                 <!-- いいねボタン -->
-                <% if topic.liked_users.include?(current_user) %>
-                  <%= link_to likes_path(topic_id: topic.id), method: :delete do %>
-                  <i class="fas fa-heart"></i>
-                <% end %>
-                <% else %>
-                <%= link_to likes_path(topic_id: topic.id), method: :post do %>
-                  <i class="far fa-heart"></i>
-                <% end %>
-                <% end %>
-
-                <%= topic.likes.count  %>
-
+                  <%= render partial: 'likes/like', locals: { topic: topic, likes: @likes} %>
                 <!-- コメント -->
                 <%= link_to "/topics/#{topic.id}" do %>
                   <i class="far fa-comment"></i>
