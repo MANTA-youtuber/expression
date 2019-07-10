@@ -9,13 +9,6 @@ Rails.application.routes.draw do
   resources :groups
 
 
-# ネスト
-  resources :topics do
-    resources :comments, only: [:create, :destroy]
-  end
-  resources :groups do
-    resources :group_user, only: [:create, :destroy]
-  end
 
   # デバイスの設定
   devise_for :users, controllers: {
@@ -29,4 +22,11 @@ Rails.application.routes.draw do
   # 下に書かないと不具合を起こす
   resources :users, only: [:show, :index]
 
+  # ネスト
+  resources :topics do
+    resources :comments, only: [:create, :destroy]
+  end
+  resources :groups do
+    resources :group_user, only: [:create, :destroy,]
+  end
 end

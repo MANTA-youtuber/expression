@@ -8,9 +8,9 @@
         <%= f.text_field :name, class: "form-control" %>
         <%= f.label :説明, class: "control-label" %>
         <%= f.text_area :description, class: "form-control" %>
-        <%# <%= f.fields_for :group_users do |af| %>
+        <%= f.fields_for :group_users, @group.group_users.build do |af| %>
         <%= af.hidden_field :user_id, value: current_user.id %>
-        <%= af.hidden_field :group_id, value: @group %>
+        <%= af.hidden_field :group_id, value: @group.id %>
         <% end %>
         <%= f.submit "グループ作成", class: "btn btn-primary" %>
         <% end %>
