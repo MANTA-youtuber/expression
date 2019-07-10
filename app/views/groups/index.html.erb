@@ -1,0 +1,26 @@
+<div class="topic-hero-wrapper text-center">
+  <div class="container top-hero-container">
+    <div class="row">
+
+<h2>  グループを作ろう！</h2>
+
+
+    <%= link_to new_group_path do %>
+    <button class="btn btn-info" >
+      新規グループ作成
+    </button>
+    <% end %>
+    <div class="">
+      <% @groups.each do |group| %>
+        <p>
+          <%= link_to group_path(group.id) do %>
+          <%= group.name %>
+          <% end %>
+        </p>
+      <% end %>
+
+    </div>
+
+    </div>
+  </div>
+</div>

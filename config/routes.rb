@@ -1,17 +1,22 @@
 Rails.application.routes.draw do
   get 'users/show/(id: current_user.id)', to: 'useus#show'
-  get 'topics/index'
-  get 'topics/new'
   root'pages#index'
-
- resources :topics
-
-  resources :topics do
-    resources :comments
-  end
-
   post '/likes', to: 'likes#create'
   delete '/likes', to: 'likes#destroy'
+
+  resources :topics
+  resources :relationships, only: [:create, :destroy]
+  resources :groups
+
+
+# ネスト
+  resources :topics do
+    resources :comments, only: [:create, :destroy]
+  end
+  resources :groups do
+    resources :group_user, only: [:create, :destroy]
+  end
+
   # デバイスの設定
   devise_for :users, controllers: {
    sessions: 'users/sessions'
@@ -21,9 +26,7 @@ Rails.application.routes.draw do
     get 'users/show/:id/following', to: 'users/registrations#following', as: 'following'
     get 'users/show/:id/followers', to: 'users/registrations#followers', as: 'followers'
   end
-
-
+  # 下に書かないと不具合を起こす
   resources :users, only: [:show, :index]
-  resources :relationships, only: [:create, :destroy]
 
 end
