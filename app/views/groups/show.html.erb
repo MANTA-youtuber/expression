@@ -1,20 +1,39 @@
-<div class="topic-hero-wrapper text-center">
-  <div class="container top-hero-container">
+<div class="group-wrapper ">
+  <div class="group-container container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <p>
-          <%= @group.name %>
-        </p>
-       <!--紹介文がある場合-->
-        <% if @group.description.present? %>
-        <p>
-          <%= @group.description %>
-        </p>
-        <% end %>
-
-        
-
+      <div class="group-show-conte col-md-4 ">
+          <%= image_tag @group.image.url %>
+          <h2>
+            <%= @group.name %>
+          </h2>
         </div>
+        <div class="group-show-conte col-md-4">
+          <% if @group.users.include?(current_user) %>
+            <%= link_to group_group_user_path(@group), method: :delete do %>
+              <button class="btn btn-warning">
+                退会
+              </button>
+            <% end %>
+          <% else %>
+            <%= link_to group_group_users_path(@group, user_id:current_user.id), method: :post do %>
+              <button class="btn btn-warning">
+                参加
+              </button>
+            <% end %>
+          <% end %>
+        </div>
+
+
+        <div class="group-show-conte col-md-8 ">
+         <!--紹介文がある場合-->
+          <% if @group.description.present? %>
+            <p>
+              <%= @group.description %>
+            </p>
+          <% end %>
+        </div>
+
+
 
 
       </div>

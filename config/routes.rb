@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :topics
   resources :relationships, only: [:create, :destroy]
   resources :groups
-
+  resources :group_users, only: [:create, :destroy,]
 
 
   # デバイスの設定
@@ -27,6 +27,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   resources :groups do
-    resources :group_user, only: [:create, :destroy,]
+    resources :group_users, only: [:create, :destroy,]
   end
 end

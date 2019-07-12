@@ -239,3 +239,69 @@ padding: 10px 20px;
   }
 
 }
+// グループ関係
+
+.group-wrapper{
+  width: 100vw;
+  height:120vh;
+  background-color: #f5deb3;
+  .group-container{
+    margin-top: 50px;
+
+  }
+  h2{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px #808080;
+    color: #fafafa;
+  }
+  h3{
+    font-size: 25px;
+    font-weight: 400;
+    text-shadow: 2px 2px 2px #808080;
+
+  }
+ .btn-warning{
+   font-size: 20px;
+   margin-top: 5px;
+ }
+}
+.group-top{
+  margin-top: 10px;
+}
+.group-conte{
+  background-color: #adffd6;
+
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+
+  img{
+    width: 150px;
+    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 30px;
+
+  }
+  p{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #dcdcdc;
+  }
+  a{
+    text-decoration-line: none;
+    font-size: 18px;
+    color: #006a6c;
+    padding-left: 10px;
+
+  }
+  a:hover{
+    color: #000;
+  }
+
+}
+// グループ詳細画面
+.group-show-conte{
+  margin-top: 10px;
+
+}

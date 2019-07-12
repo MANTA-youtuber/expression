@@ -1,26 +1,36 @@
-<div class="topic-hero-wrapper text-center">
-  <div class="container top-hero-container">
+<div class="group-wrapper text-cente">
+  <div class="container group-container">
     <div class="row">
 
-<h2>  グループを作ろう！</h2>
+        <div class="group-top col-md-10">
+          <h2>  コミュニティを作って、いっぱい繋がろう！</h2>
 
+        </div>
+      <div class="group-top col-md-2">
+        <%= link_to new_group_path do %>
+        <button class="btn btn-warning " >
+          新規コミュニティ作成
+        </button>
+        <% end %>
 
-    <%= link_to new_group_path do %>
-    <button class="btn btn-info" >
-      新規グループ作成
-    </button>
-    <% end %>
-    <div class="">
-      <% @groups.each do |group| %>
+      </div>
+
+      <div class="col-md-5">
+      <h3>最新のグループ一覧</h3>
+      <div class="group-conte">
+        <% @groups.each do |group| %>
         <p>
+          <%= image_tag group.image.url %>
           <%= link_to group_path(group.id) do %>
           <%= group.name %>
           <% end %>
+          <%= link_to '削除', group, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
         </p>
-      <% end %>
 
-    </div>
+        <% end %>
 
+      </div>
+      </div>
     </div>
   </div>
 </div>

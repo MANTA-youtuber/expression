@@ -10,7 +10,9 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+
   end
+
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -18,17 +20,14 @@ class GroupsController < ApplicationController
     else
       flash.now[:danger] = "作成に失敗しました"
       render :new
-
     end
   end
 
 
-  def edite
-
-  end
-
   def destroy
-
+    @groups = Group.find_by(id: params[:id])
+    @groups.destroy
+    redirect_to groups_path
   end
 
   private
