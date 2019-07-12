@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="group-show-conte col-md-8 ">
+        <div class="group-show-conte col-md-12 ">
          <!--紹介文がある場合-->
           <% if @group.description.present? %>
             <p>
@@ -32,8 +32,17 @@
             </p>
           <% end %>
         </div>
+        <% @group.users.each do |user| %>
+          <div class="col-md-12">
+            <h3>参加メンバー
+            </h3>
+            <p>
+              <%= user.name %>
+              <%= user.age %>
+            </p>
 
-
+            <% end %>
+        </div>
 
 
       </div>
