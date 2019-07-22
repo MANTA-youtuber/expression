@@ -242,11 +242,11 @@ padding: 10px 20px;
 // グループ関係
 
 .group-wrapper{
+  height: 100%;
   width: 100vw;
-  height:120vh;
-  background-color: #f5deb3;
+    background-color: #f5deb3;
   .group-container{
-    margin-top: 50px;
+    padding-top: 50px;
 
   }
   h2{
@@ -263,7 +263,7 @@ padding: 10px 20px;
   }
  .btn-warning{
    font-size: 20px;
-   margin-top: 5px;
+   margin-top: 10px;
  }
 }
 .group-top{
@@ -302,6 +302,88 @@ padding: 10px 20px;
 }
 // グループ詳細画面
 .group-show-conte{
-  margin-top: 10px;
+  margin-top: 20px;
+  font-size: 18px;
 
+
+  p{
+    box-shadow:0px 0.5px 2px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+
+  }
+  img{
+    width: 100%;
+    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 30px;
+  }
+
+}
+
+.group-show-user{
+  margin-bottom: 50px;
+}
+
+.group-user{
+  display: inline-block;
+  width: 83px;
+  p{
+    text-align: center;
+    margin-bottom: 3px;
+  }
+  img{
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 30px;
+
+  }
+}
+
+
+.topic-text{
+  font-size: 18px;
+}
+.topic-description{
+  p{
+    box-shadow:0px 0.5px 2px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+  }
+}
+// グループ投稿
+.group-topic{
+  margin: 15px;
+  box-shadow:0px 1px 3px;
+  padding: 10px;
+  border: 1px solid #fff;
+
+  .group-topic-image{
+    margin: 0px;
+    padding: 0;
+    position: relative;
+    background-color: #000;
+
+    img{
+      width: 100%;
+    }
+
+    p{
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      font-size: 20px;
+      padding: 10px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+
+    }
+  }
 }

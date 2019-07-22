@@ -1,48 +1,77 @@
 <div class="group-wrapper ">
   <div class="group-container container">
     <div class="row">
-      <div class="group-show-conte col-md-4 ">
-          <%= image_tag @group.image.url %>
-          <h2>
-            <%= @group.name %>
-          </h2>
-        </div>
-        <div class="group-show-conte col-md-4">
-          <% if @group.users.include?(current_user) %>
-            <%= link_to group_group_user_path(@group), method: :delete do %>
-              <button class="btn btn-warning">
-                退会
-              </button>
-            <% end %>
-          <% else %>
-            <%= link_to group_group_users_path(@group, user_id:current_user.id), method: :post do %>
-              <button class="btn btn-warning">
-                参加
-              </button>
-            <% end %>
-          <% end %>
-        </div>
+      <div class="col-md-12 text-right">
+      <% if @group.users.include?(current_user) %>
+
+        <%= link_to group_group_topics_path(@group) do %>
+        <button class="btn btn-warning">投稿一覧</button>
+        <% end %>
+
+      <% end %>
+
+        <%= link_to groups_path do %>
+        <button class="btn btn-warning">戻る</button>
+        <% end %>
+
+      </div>
+      <div class="group-show-conte text-center col-md-4 ">
+        <%= image_tag @group.image.url %>
+        <h2>
+          <%= @group.name %>
+        </h2>
+      </div>
 
 
-        <div class="group-show-conte col-md-12 ">
+
+        <div class="group-show-conte col-md-8">
          <!--紹介文がある場合-->
+         どんなコミュニティ？
           <% if @group.description.present? %>
             <p>
               <%= @group.description %>
             </p>
+          <% else %>
+          <p></p>
           <% end %>
         </div>
-        <% @group.users.each do |user| %>
-          <div class="col-md-12">
-            <h3>参加メンバー
-            </h3>
-            <p>
-              <%= user.name %>
-              <%= user.age %>
-            </p>
 
+        <div class="col-md-8">
+
+            <div class="text-right">
+              <p>
+                参加者 ：<%= @group.users.count %>人
+              </p>
+            <% if @group.users.include?(current_user) %>
+            <%= link_to group_group_user_path(@group), method: :delete do %>
+            <button class="btn btn-warning">
+              退会
+            </button>
             <% end %>
+            <% else %>
+            <%= link_to group_group_users_path(@group, user_id:current_user.id), method: :post do %>
+            <button class="btn btn-warning">
+              参加
+            </button>
+            <% end %>
+            <% end %>
+          </div>
         </div>
+
+        <% @group.users.each do |user| %>
+        <div class="topic-text col-md-12">
+          <p>参加メンバー</p>
+
+        </div>
+          <div class="group-show-user col-md-12">
+              <div class="group-user">
+                <p>
+                  <%= image_tag user.image.url %>
+                </p>
+                <p><%= user.name %></p>
+              </div>
+            </div>
+        <% end %>
 
 
       </div>

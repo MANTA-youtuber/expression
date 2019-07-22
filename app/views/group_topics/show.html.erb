@@ -1,0 +1,31 @@
+<div class="group-wrapper ">
+  <div class="group-container container">
+    <div class="row>">
+
+
+      <div class=" group-topic col-md-12">
+        <!--画像 (※ある場合のみ) -->
+        <div class=" group-topic-image col-md-6">
+          <%= image_tag @topic.image.url %>
+          <p><%= @topic.title %></p>
+
+        </div>
+
+        <div class="topic-description col-md-6">
+          <%= l @topic.created_at, format: :short %>
+          <p>
+          <!-- 本文 --><%= @topic.description %>
+          </p>
+        </div>
+      </div>
+      <p>コメント</p>
+
+      <div class="">
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

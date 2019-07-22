@@ -25,6 +25,8 @@ validates :name, presence: true
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
+  has_many :group_topics, dependent: :destroy
+
 
 
   # ユーザーをフォローする
