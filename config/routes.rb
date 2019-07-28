@@ -31,4 +31,9 @@ Rails.application.routes.draw do
     resources :group_users, only: [:create, :destroy,]
     resources :group_topics
   end
+  resources :group_topics do
+    resources :group_comments, only: [:create, :destroy,]
+
+  end
+
 end

@@ -3,39 +3,53 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="topic-index-single">
-          <h2 class="topic-author">
-            <p class="user-image">
-              <%= image_tag @topic.user.image.url %>
-            </p>
+            <h2 class="topic-author">
+              <p class="user-image">
+                <%= image_tag @topic.user.image.url %>
+              </p>
 
-            <p>
-              <%= @topic.user.name %>
-            </p>
+              <p>
+                <%= @topic.user.name %>
+              </p>
 
-            <p class="time-text">
-              <%= l @topic.created_at, format: :short %>
-            </p>
-          </h2>
+              <p class="time-text">
+                <%= l @topic.created_at, format: :short %>
+              </p>
+            </h2>
 
-          <div class="topic-conte">
-            <p class="topic-text"><!-- 本文 --><%= @topic.description %></p>
-              <!--画像 (※ある場合のみ) -->
-            <p class= "topic-image">
-              <% if @topic.image.present? %>
-              <%= image_tag @topic.image.url %>
-              <% end %>
-            </p>
+            <div class="topic-conte">
+              <p class="topic-text"><!-- 本文 --><%= @topic.description %></p>
+                <!--画像 (※ある場合のみ) -->
+              <p class= "topic-image">
+                <% if @topic.image.present? %>
+                <%= image_tag @topic.image.url %>
+                <% end %>
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <% if @topic.comments.any? %>
+          <div class="commente-under">
+            <p><%= @topic.comments.count %>件のコメント</p>
+          </div>
+
+          <div class="comment-top ">
             <% @topic.comments.each do |comment| %>
-              <div class="comment-index-single">
-                <p><%= comment.content %></p>
+              <div class="comment-conte">
+
+                <div class="user-image comment-conte2 ">
+                  <%= image_tag comment.user.image.url %>
+                </div>
+
+                <div class="comment-conte3">
+                  <div class="">
+                    <%= comment.user.name %>
+                  </div>
+
+                  <p><%= comment.content %></p>
+                </div>
               </div>
             <% end %>
-          <% end %>
+          </div>
 
           <%= form_for ([@topic, @topic.comments.build]) do |f| %>
             <div class="form-group">

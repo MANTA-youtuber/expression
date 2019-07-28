@@ -7,6 +7,7 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
    # ↓自分のトピックだけに限定
   @topics = current_user.topics.all
+  @group = current_user.groups.all
 
   def following
     @title = "フォロー"

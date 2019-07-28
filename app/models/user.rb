@@ -26,6 +26,7 @@ validates :name, presence: true
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :group_topics, dependent: :destroy
+  has_many :group_comments, dependent: :destroy
 
 
 

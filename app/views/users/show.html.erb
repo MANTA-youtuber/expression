@@ -34,11 +34,35 @@
             <i class="fas fa-birthday-cake"></i>
             <%= @user.age %>代
           </p>
+            <% if user_signed_in? && current_user.id == @user.id  %>
+            <%= link_to edit_user_registration_path(@user) do %>
+              <p>編集</p>
+            <% end %>
+          <% end %>
+
         </div>
       </div>
 
+      <div class="col-md-5">
+        <h2 class="text-center">コミュニティー</h2>
+        <div class="group-conte ">
+          <% @user.groups.each do |group| %>
+          <p>
+            <%= image_tag group.image.url %>
+            <%= link_to group_path(group.id) do %>
+            <%= group.name %>
+            <% end %>
+          </p>
 
-      <div class="col-md-6 col-md-offset-6 ">
+          <% end %>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-7">
+        <h2 class = "text-center">投稿</h2>
         <% @user.topics.each do |topic| %>
           <div class="topic-index-single">
             <h2 class="topic-author">

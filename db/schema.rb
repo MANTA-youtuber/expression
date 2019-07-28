@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_060819) do
+ActiveRecord::Schema.define(version: 2019_07_22_150106) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2019_07_16_060819) do
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_comments_on_topic_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "group_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "group_topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_topic_id"], name: "index_group_comments_on_group_topic_id"
+    t.index ["user_id"], name: "index_group_comments_on_user_id"
   end
 
   create_table "group_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,6 +122,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_060819) do
 
   add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
+  add_foreign_key "group_comments", "group_topics"
+  add_foreign_key "group_comments", "users"
   add_foreign_key "group_topics", "groups"
   add_foreign_key "group_topics", "users"
   add_foreign_key "group_users", "groups"

@@ -2,6 +2,7 @@ class GroupTopic < ApplicationRecord
   # アソシエーション
   belongs_to :user, optional: true
   belongs_to :group, optional: true
+  has_many :group_comments
 
   # バリデーション
   validates :title, presence: true

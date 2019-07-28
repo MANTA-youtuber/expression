@@ -12,6 +12,7 @@ class GroupTopicsController < ApplicationController
 
   def show
     @topic = GroupTopic.find(params[:id])
+    @comment = GroupComment.all.includes(params[:group_topic_id])
   end
 
   def create

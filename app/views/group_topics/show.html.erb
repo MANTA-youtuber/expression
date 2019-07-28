@@ -18,13 +18,40 @@
           </p>
         </div>
       </div>
-      <p>コメント</p>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="commente-under">
+          <p><%= @topic.group_comments.count %>件のコメント</p>
+        </div>
 
-      <div class="">
+        <div class="comment-top ">
+          <% @topic.group_comments.each do |comment| %>
+          <div class="comment-conte">
+            <div class="user-image comment-conte2 ">
+              <%= image_tag comment.user.image.url %>
+            </div>
 
-
+            <div class="comment-conte3">
+              <div class="">
+                <%= comment.user.name %>
+              </div>
+              <p><%= comment.content %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
 
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_for ([@topic, @topic.group_comments.build]) do |f| %>
+          <div class="form-group">
+            <%= f.text_area :content, class: 'form-control' %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :group_topic_id, value: @group_topic %>
+          </div>
+
+            <%= f.submit '返信', class: 'btn btn-info btn-block' %>
+        <% end %>
+      </div>
 
     </div>
   </div>
