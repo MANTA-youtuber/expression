@@ -1,16 +1,19 @@
 <div class="top-hero-wrapper text-center">
   <div class="container top-hero-container">
     <div class="row">
-      <h1 >EXPRESSION</h1>
-      <h2 >サブタイトル</h2>
+      <div class="col-md-8 col-md-offset-2 text-center top-image">
+        <%= image_tag ("noname.png") %>
+      </div>
+      <div class="col-md-12">
 
-      <%= link_to new_user_registration_path do %>
-      <button class="btn btn-info" >
-		    新規アカウント作成
-	    </button>
-      <% end %>
+        <h2 >サブタイトル</h2>
 
-
+        <%= link_to new_user_registration_path do %>
+        <button class="btn btn-info" >
+          新規アカウント作成
+        </button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
