@@ -7,9 +7,9 @@
 
       <div class="group-top col-md-4">
         <%= link_to  new_group_group_topic_path do %>
-        <button class="btn btn-warning " >
-          投稿作成する
-        </button>
+          <button class="btn btn-warning " >
+            投稿作成する
+          </button>
         <% end %>
 
         <%= link_to group_path(@group) do %>
@@ -17,39 +17,28 @@
             TOPに戻る
           </button>
         <% end %>
-
-
-
       </div>
-
     </div>
 
     <% @group.group_topics.each do |topic| %>
       <div class="row group-topic ">
+        <div class="group-topic-image col-md-6">
+          <!--画像 (※ある場合のみ) -->
+          <%= link_to group_topic_path(topic) do %>
+            <%= image_tag topic.image.url %>
+          <% end %>
+          <p><%= topic.title %></p>
+        </div>
 
-
-
-
-            <div class="group-topic-image col-md-6">
-              <!--画像 (※ある場合のみ) -->
-              <%= link_to group_topic_path(topic) do %>
-              <%= image_tag topic.image.url %>
-              <% end %>
-                <p><%= topic.title %></p>
-            </div>
-            
-            <div class="topic-text col-md-6 text-right">
-              <p>
-                <%= l topic.created_at, format: :short %>
-              </p>
-            </div>
-            <div class="topic-description col-md-6">
-              <p class=""><!-- 本文 --><%= topic.description %></p>
-            </div>
-
-
+        <div class="topic-text col-md-6 text-right">
+          <p>
+            <%= l topic.created_at, format: :short %>
+          </p>
+        </div>
+        <div class="topic-description col-md-6">
+          <p class=""><!-- 本文 --><%= topic.description %></p>
+        </div>
       </div>
     <% end %>
-
   </div>
 </div>

@@ -1,19 +1,17 @@
 <div class="follow-wrapper">
   <div class="container">
     <div class="row">
-
       <div >
         <div class="col-md-6 col-md-offset-3 user-image text-center">
           <%= image_tag @user.image.url %>
           <h1><%= @user.name %></h1>
-
         </div>
 
         <section class="stats col-md-6 col-md-offset-3">
           <%= render 'devise/shared/stats' %>
         </section>
 
-        <div class="col-md-6 col-md-offset-3 ">
+      <div class="col-md-6 col-md-offset-3 ">
           <h3 class="text-center"><%= @title %></h3>
           <% if @users.any? %>
             <div class="users follow pro-index-single2 user-image">
@@ -28,7 +26,6 @@
           <% end %>
         </div>
       </div>
-
-
+    </div>
   </div>
 </div>

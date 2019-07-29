@@ -1,25 +1,18 @@
 <div class="topic-index-wrapper">
   <div class="container">
     <div class="row">
-
       <div class="pro-index-single2 col-md-12">
         <p class="user-pro-image2 pro-top col-md-4 text-center offset-col-md-8">
           <%= image_tag @user.image.url %>
         </p>
-
         <p pro-top class= "pro-top2 col-md-8 text-center">
           <%= @user.name %>
-
-          <!-- フォロー -->
         </p>
+        <!-- フォロー -->
         <%= render 'devise/shared/stats' %>
         <div class="text-center">
           <%= render 'devise/shared/follow_form'%>
         </div>
-
-
-
-
 
         <div class="col-md-8 pro-text">
           <p><%= @user.profile %></p>
@@ -39,7 +32,6 @@
               <p>編集</p>
             <% end %>
           <% end %>
-
         </div>
       </div>
 
@@ -53,13 +45,9 @@
             <%= group.name %>
             <% end %>
           </p>
-
           <% end %>
-
         </div>
-
       </div>
-
 
       <div class="col-md-7">
         <h2 class = "text-center">投稿</h2>
@@ -69,11 +57,9 @@
               <p class="user-image">
                 <%= image_tag topic.user.image.url %>
               </p>
-
               <p>
                 <%=topic.user.name %>
               </p>
-
               <p class="time-text">
                 <%= l topic.created_at, format: :short %>
               </p>
@@ -88,8 +74,8 @@
                 <% end %>
               </p>
 
+              <!-- いいねボタン -->
               <div class="icon-list fa-2x">
-                <!-- いいねボタン -->
                 <div id="likes_buttons_<%= topic.id %>">
                   <%= render partial: 'likes/like', locals: { topic: topic} %>
                 </div>
@@ -98,13 +84,12 @@
                 <%= link_to "/topics/#{topic.id}" do %>
                   <i class="far fa-comment"></i>
                 <% end %>
-
                 <%= topic.comments.count %>
               </div>
 
               <!--  ログインしているかつtopicと投稿したuserが一緒なら -->
               <% if user_signed_in? && current_user.id == topic.user_id  %>
-              <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
+                <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
               <% end %>
             </div>
           </div>

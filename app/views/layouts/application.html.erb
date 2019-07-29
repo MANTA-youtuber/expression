@@ -7,19 +7,17 @@
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  </head>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
 
   <body>
-
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
 
-
-
     <!-- ナビゲーション -->
    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent navbar-inverse">
+
      <!-- 省略メニューボタン -->
      <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample10">
        <span class="sr-only">Toggle navigation</span>
@@ -42,31 +40,30 @@
         <div class="collapse navbar-collapse" id="navbarEexample10">
           <ul class="nav navbar-nav navbar-right ">
             <% if user_signed_in? %>
-            <li>
-              <%= link_to topics_path do %>
-               ホーム
-              <% end %>
-            </li>
-            <li>
-              <%= link_to user_path(current_user.id) do %>
-                マイページ
-              <% end %>
-            </li>
-            <li>
-              <%= link_to groups_path do %>
-                コミュニティ
-              <% end %>
-            </li>
+              <li>
+                <%= link_to topics_path do %>
+                 ホーム
+                <% end %>
+              </li>
+              <li>
+                <%= link_to user_path(current_user.id) do %>
+                  マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to groups_path do %>
+                  コミュニティ
+                <% end %>
+              </li>
 
-           <li>
-             <%= link_to new_topic_path do %>
-               ツイート投稿
-             <% end %>
-           </li>
+             <li>
+               <%= link_to new_topic_path do %>
+                 ツイート投稿
+               <% end %>
+             </li>
 
              <li>
                <%= link_to"ログアウト", destroy_user_session_path, method: :delete, data: {confirm: 'ログアウトしてよろしいですか？'}  %>
-
              </li>
             <% else %>
              <li>
@@ -80,10 +77,7 @@
      </div>
    </nav>
 
-
-     <%= yield %>
-
-  
+    <%= yield %>
 
     <script>
       $(function(){

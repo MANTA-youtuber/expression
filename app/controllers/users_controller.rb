@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -6,9 +7,9 @@ class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    # ↓自分のトピックだけに限定
-  @topics = current_user.topics.all
-  @group = current_user.groups.all
-
+    @topics = current_user.topics.all
+    @group = current_user.groups.all
+  end
   def following
     @title = "フォロー"
     @user  = User.friendly.find(params[:id])
@@ -22,6 +23,4 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follow'
   end
- end
-
 end

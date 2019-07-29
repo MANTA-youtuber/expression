@@ -16,7 +16,12 @@ h1, h2 {
   width: 100vw;
   height: 120vh;
   // background-color: #fff;
-
+  h2{
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px #808080;
+    color: #00ffff;
+  }
 }
 
 .top-hero-container {
@@ -73,7 +78,7 @@ h1, h2 {
   padding-top: 50px;
 
   .topic-index-single {
-    background-color: #dcdcdc;
+    background-color: #00ffff;
     padding-top: 20px;
 
     // padding-left: 50px;
@@ -212,7 +217,7 @@ padding: 10px 20px;
 
 .pro-index-single{
 
-  background-color:#dcdcdc;
+  background-color: #00ffff;
   padding-top: 20px;
   margin-top:20px;
   margin-bottom: 10px;
@@ -222,7 +227,7 @@ padding: 10px 20px;
 // プロフィル画面
 
 .pro-index-single2{
-  background-color:#dcdcdc;
+  background-color:#00ffff;
   padding-top: 20px;
   margin-top:20px;
   margin-bottom: 10px;
@@ -261,7 +266,7 @@ padding: 10px 20px;
 }
 // プロフィール編集
 .edit-container{
-  background-color:#dcdcdc;
+  background-color:#00ffff;
   div{
     margin-bottom: 20px;
   }
@@ -336,7 +341,7 @@ padding: 10px 20px;
   margin-top: 10px;
 }
 .group-conte{
-  background-color: #adffd6;
+  background-color: #fdf5e6;
   margin-top: 20px;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 10px;

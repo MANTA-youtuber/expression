@@ -2,11 +2,11 @@
   <div class="group-container container">
     <div class="row">
       <div class="col-md-12 text-right">
-      <% if @group.users.include?(current_user) %>
-        <%= link_to group_group_topics_path(@group) do %>
-          <button class="btn btn-warning">投稿一覧</button>
+        <% if @group.users.include?(current_user) %>
+          <%= link_to group_group_topics_path(@group) do %>
+            <button class="btn btn-warning">投稿一覧</button>
+          <% end %>
         <% end %>
-      <% end %>
 
         <%= link_to groups_path do %>
           <button class="btn btn-warning">戻る</button>
@@ -41,30 +41,28 @@
       </div>
 
       <div class="col-md-8">
-
-          <div class="text-right">
-            <p>
-              参加者 ：<%= @group.users.count %>人
-            </p>
+        <div class="text-right">
+          <p>
+            参加者 ：<%= @group.users.count %>人
+          </p>
           <% if @group.users.include?(current_user) %>
-          <%= link_to group_group_user_path(@group), method: :delete do %>
-          <button class="btn btn-warning">
-            退会
-          </button>
-          <% end %>
+            <%= link_to group_group_user_path(@group), method: :delete do %>
+            <button class="btn btn-warning">
+              退会
+            </button>
+            <% end %>
           <% else %>
-          <%= link_to group_group_users_path(@group, user_id:current_user.id), method: :post do %>
-          <button class="btn btn-warning">
-            参加
-          </button>
-          <% end %>
+            <%= link_to group_group_users_path(@group, user_id:current_user.id), method: :post do %>
+              <button class="btn btn-warning">
+                参加
+              </button>
+            <% end %>
           <% end %>
         </div>
       </div>
 
       <div class="col-md-12">
         <p>参加メンバー</p>
-
       </div>
 
       <div class="group-show-user col-md-12">
@@ -76,8 +74,6 @@
             <p><%= user.name %></p>
           </div>
         <% end %>
-      </div>
-
       </div>
     </div>
   </div>

@@ -1,13 +1,11 @@
 <div class="topic-index-wrapper">
   <div class="container">
     <div class="row">
-
       <div class="col-md-4 col-sm-5">
         <div class="pro-index-single ">
           <div class="pro-top text-center">
             <p class="user-pro-image">
               <%= image_tag @user.image.url %>
-
             </p>
             <p><%= @user.name %></p>
           </div>
@@ -26,18 +24,15 @@
               <%= @user.age %>代
             </p>
           </div>
-
         </div>
       </div>
 
       <div class="col-md-6 col-sm-7">
-    <% @topics.each do |topic| %>
+        <% @topics.each do |topic| %>
           <div class="topic-index-single">
             <h2 class="topic-author">
               <p class="user-image">
-
                 <%= image_tag topic.user.image.url %>
-
               </p>
 
               <p>
@@ -53,29 +48,32 @@
 
             <div class="topic-conte">
               <p class="topic-text"><!-- 本文 --><%= topic.description %></p>
-                <!--画像 (※ある場合のみ) -->
-                <p class= "topic-image">
-                  <% if topic.image.present? %>
-                  <%= image_tag topic.image.url %>
-                  <% end %>
-                </p>
 
-                <div class="icon-list fa-2x">
+              <!--画像 (※ある場合のみ) -->
+              <p class= "topic-image">
+                <% if topic.image.present? %>
+                <%= image_tag topic.image.url %>
+                <% end %>
+              </p>
+
+              <div class="icon-list fa-2x">
                 <!-- いいねボタン -->
-                  <%= render partial: 'likes/like', locals: { topic: topic, likes: @likes} %>
+                <%= render partial: 'likes/like', locals: { topic: topic, likes: @likes} %>
+
                 <!-- コメント -->
                 <%= link_to "/topics/#{topic.id}" do %>
                   <i class="far fa-comment"></i>
                 <% end %>
                 <%= topic.comments.count %>
               </div>
+
               <!--  ログインしているかつtopicと投稿したuserが一緒なら -->
               <% if user_signed_in? && current_user.id == topic.user_id  %>
-              <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
+                <%= link_to '削除', topic, method: :delete, data: {confirm: '削除してよろしいですか？'} %>
               <% end %>
             </div>
           </div>
-      <% end %>
+        <% end %>
     </div>
     </div>
   </div>

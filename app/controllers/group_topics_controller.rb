@@ -2,7 +2,6 @@ class GroupTopicsController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @group_topics = GroupTopic.all.includes(:group)
-
   end
 
   def new
@@ -16,8 +15,6 @@ class GroupTopicsController < ApplicationController
   end
 
   def create
-
-
     @group_topic = GroupTopic.new(group_topics)
     if @group_topic.save
       redirect_to  group_group_topics_path(@group_topic.group.id)
@@ -27,13 +24,9 @@ class GroupTopicsController < ApplicationController
       flash[:danger] = "投稿に失敗しました！"
     end
   end
-
 end
-
-
 
 private
 def group_topics
-
   params.require(:group_topic).permit(:image, :description, :user_id, :title, :group_id)
 end
