@@ -1,4 +1,12 @@
 // 全体
+body{
+    background-image: url('1456484.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+
+}
+
 h1, h2 {
   font-weight: 100;
 }
@@ -7,7 +15,7 @@ h1, h2 {
 .top-hero-wrapper {
   width: 100vw;
   height: 120vh;
-  background-color: #fff;
+  // background-color: #fff;
 
 }
 
@@ -22,7 +30,15 @@ h1, h2 {
 .top-image{
   img{
     width: 100%;
+    margin-top: 100px;
   }
+}
+.top-back{
+
+  background-image: url('1456484.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
 }
 
 // ナビゲーション
@@ -55,7 +71,6 @@ h1, h2 {
 }
 .topic-index-wrapper {
   padding-top: 50px;
-  background-color: #fff;
 
   .topic-index-single {
     background-color: #dcdcdc;
@@ -295,7 +310,7 @@ padding: 10px 20px;
 .group-wrapper{
   height: 100%;
   width: 100vw;
-    background-color: #f5deb3;
+
   .group-container{
     padding-top: 50px;
 

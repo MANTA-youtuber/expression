@@ -13,6 +13,16 @@ class GroupsController < ApplicationController
 
   end
 
+  def edit
+    @group = Group.find(params[:id])
+
+  end
+  def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to group_path(@group)
+  end
+
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -32,7 +42,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :description, :image, group_users_attributes: [:group_id, :user_id] )
+    params.require(:group).permit(:name, :description, :image, :user_id, group_users_attributes: [:group_id, :user_id] )
   end
 
 end
