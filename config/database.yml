@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: expression_production
-  username: expression
-  password: <%= ENV['EXPRESSION_DATABASE_PASSWORD'] %>
+<<: *default
+adapter: postgresql
+encoding: unicode
+pool: 5
