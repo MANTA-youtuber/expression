@@ -14,7 +14,12 @@
           <p><%= @topic.description %></p>
         </div>
       </div>
-      
+      <div class="">
+        <%= link_to @topic, method: :delete, data: {confirm: '削除してよろしいですか？'} do %>
+          <button class="btn btn-warning">削除</button>
+        <% end %>
+      </div>
+
       <div class="col-md-8 col-md-offset-2">
         <div class="commente-under">
           <p><%= @topic.group_comments.count %>件のコメント</p>

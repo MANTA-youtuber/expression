@@ -24,6 +24,12 @@ class GroupTopicsController < ApplicationController
       flash[:danger] = "投稿に失敗しました！"
     end
   end
+  def destroy
+    @topic = GroupTopic.find(params[:id])
+    @topic.destroy
+    redirect_to group_group_topics_path(@topic.group.id)
+  end
+
 end
 
 private
