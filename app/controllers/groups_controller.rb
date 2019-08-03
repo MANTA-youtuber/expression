@@ -25,7 +25,8 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_path(@group), success: 'グループ作成しました'
+      redirect_to group_path(@group)
+      flash[:success] = "コミュニティを作成しました！"
     else
       flash.now[:danger] = "作成に失敗しました"
       render :new
